@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Audio Videolizer</title>
+	//<link href="styles/default-styles.css" type="text/css" rel="stylesheet" />
+<!--	//<script src="./src/loader.js" type="module"></script>-->
+    <script>
+   
+document.addEventListener('DOMContentLoaded', function(){
+    var v = document.getElementById('v');
+    var canvas = document.getElementById('c');
+    var context = canvas.getContext('2d');
+    //pixel effect
+    var cw = Math.floor(canvas.clientWidth / 50);
+    var ch = Math.floor(canvas.clientHeight / 50);
+    canvas.width = cw;
+    canvas.height = ch;
+
+    v.addEventListener('play', function(){
+        draw(this,context,cw,ch);
+    },false);
+
+    },false);
+
+    function draw(v,c,w,h) {
+    if(v.paused || v.ended)	return false;
+    c.drawImage(v,0,0,w,h);
+    setTimeout(draw,20,v,c,w,h);
+    }
+    
+</script>
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.977.0">
+<canvas id="c" width="13" height="6"></canvas> 
+<video id="v" controls loop> 
+	<source src="../media/media/video.mp4" type="video/mp4"> 
+</video> 
+ 
+<style> 
+body {
+	background: black;
+}
+ 
+#c {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+}
+ 
+#v {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -180px 0 0 -240px;
+}
+ 
+p {
+	position: relative;
+	z-index: 1;
+}
+</style> 
+</body>
+</html>
