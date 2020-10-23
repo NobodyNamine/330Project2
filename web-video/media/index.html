@@ -4,7 +4,8 @@
 	<meta charset="utf-8" />
 	<title>Audio Videolizer</title>
 	//<link href="styles/default-styles.css" type="text/css" rel="stylesheet" />
-<!--	//<script src="./src/loader.js" type="module"></script>-->
+    <script src="./src/loader.js" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.6/dat.gui.min.js" integrity="sha256-HJ7j+71YYw6Kcs8THwQV9lXmPOcR0eXlg7n8KRTZsyA=" crossorigin="anonymous"></script>
     <script>
    
 document.addEventListener('DOMContentLoaded', function(){
@@ -12,8 +13,8 @@ document.addEventListener('DOMContentLoaded', function(){
     var canvas = document.getElementById('c');
     var context = canvas.getContext('2d');
     //pixel effect
-    var cw = Math.floor(canvas.clientWidth / 50);
-    var ch = Math.floor(canvas.clientHeight / 50);
+    var cw = Math.floor(canvas.clientWidth / 10);
+    var ch = Math.floor(canvas.clientHeight / 10);
     canvas.width = cw;
     canvas.height = ch;
 
@@ -27,9 +28,13 @@ document.addEventListener('DOMContentLoaded', function(){
     if(v.paused || v.ended)	return false;
     c.drawImage(v,0,0,w,h);
     setTimeout(draw,20,v,c,w,h);
+        
+//        var pat = ctx.createPattern(img,"repeat");
+//        ctx.fillStyle = pat;
     }
-    
-</script>
+    </script>
+
+
 </head>
 
 <body data-new-gr-c-s-check-loaded="14.977.0">
@@ -37,7 +42,12 @@ document.addEventListener('DOMContentLoaded', function(){
 <video id="v" controls loop> 
 	<source src="../media/media/video.mp4" type="video/mp4"> 
 </video> 
- 
+
+<!--dat gui-->
+<ul style="height: auto;">
+<li class="cr string"><div><span class="property-name">h1.innerHTML</span><div class="c"><input type="text"></div></div></li><li class="cr string"><div><span class="property-name">h1.style.color</span><div class="c"><select><option value="black">Black</option><option value="red">Red</option><option value="green">Green</option><option value="blue">Blue</option></select></div></div></li><li class="cr color" style="border-left-color: rgb(255, 255, 255);"><div><span class="property-name">document.body.style.backgroundColor</span><div class="c"><input type="text" style="outline: none; text-align: center; color: rgb(0, 0, 0); border: 0px; font-weight: bold; text-shadow: rgba(255, 255, 255, 0.7) 0px 1px 1px; background-color: rgb(255, 255, 255);"><div class="selector" style="width: 122px; height: 102px; padding: 3px; background-color: rgb(34, 34, 34); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px;"><div class="field-knob" style="position: absolute; width: 12px; height: 12px; border: 2px solid rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px; border-radius: 12px; z-index: 1; margin-left: -7px; margin-top: -7px; background-color: rgb(255, 255, 255);"></div><div class="saturation-field" style="width: 100px; height: 100px; border: 1px solid rgb(85, 85, 85); margin-right: 3px; display: inline-block; cursor: pointer; background: -webkit-linear-gradient(left, rgb(255, 255, 255) 0%, rgb(255, 0, 0) 100%);"><div style="width: 100%; height: 100%; background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);"></div></div><div class="hue-field" style="width: 15px; height: 100px; border: 1px solid rgb(85, 85, 85); cursor: ns-resize; position: absolute; top: 3px; right: 3px; background: -webkit-linear-gradient(top, rgb(255, 0, 0) 0%, rgb(255, 0, 255) 17%, rgb(0, 0, 255) 34%, rgb(0, 255, 255) 50%, rgb(0, 255, 0) 67%, rgb(255, 255, 0) 84%, rgb(255, 0, 0) 100%);"><div class="hue-knob" style="position: absolute; width: 15px; height: 2px; border-right: 4px solid rgb(255, 255, 255); z-index: 1; margin-top: 100px;"></div></div></div></div></div></li><li class="cr number has-slider"><div><span class="property-name">h1.style.fontWeight</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 75%;"></div></div></div></div></li><li class="cr string"><div><span class="property-name">h1.style.fontFamily</span><div class="c"><select><option value="Serif">Serif</option><option value="Sans-serif">Sans-serif</option><option value="Monospace">Monospace</option><option value="Cursive">Cursive</option><option value="Fantasy">Fantasy</option></select></div></div></li><li class="cr number has-slider"><div><span class="property-name">h1.style.fontSize</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 42.2222%;"></div></div></div></div></li><li class="cr function"><div><span class="property-name">Score ++</span><div class="c"><div class="button"></div></div></div></li><li class="cr function"><div><span class="property-name">Score --</span><div class="c"><div class="button"></div></div></div></li></ul>
+
+
 <style> 
 body {
 	background: black;
